@@ -57,7 +57,7 @@ const Experience = () => {
         <SectionContent>
           <SectionTitle>Embedded Systems Engineering Intern at Endeavour Aerospace</SectionTitle>
           <p>
-            As an Embedded Systems Engineering Intern at Endeavour Aerospace, I worked on the design and development of embedded systems for aerospace applications. I gained hands-on experience with low-level programming, sensor integration, and real-time systems, contributing to key projects and collaborating with engineers to enhance system performance.
+            As an Embedded Systems Engineering Intern at Endeavour Aerospace, I worked on the design and development of embedded systems for aerospace applications. I gained hands-on experience with low-level programming, and real-time systems, contributing to key projects and collaborating with engineers to enhance system performance.
           </p>
         </SectionContent>
       </Section>
@@ -68,7 +68,7 @@ const Experience = () => {
         <SectionContent>
           <SectionTitle>UNSW Casual Academic</SectionTitle>
           <p>
-            As a Casual Academic at UNSW, I had the opportunity to present and lead my own classroom. I demonstrated concepts in mechatronics and computer science to undergraduate students, helping them grasp complex theories through practical examples and demonstrations. I also provided one-on-one support to students during lab sessions.
+          As a Casual Academic at UNSW, I have had the privilege of leading and presenting in various teaching environments, ranging from intimate lab sessions to large-scale workshops. I demonstrated key concepts in mechatronics and computer science to undergraduate students, breaking down complex theories through practical examples and hands-on demonstrations. My experience includes conducting lab sessions for groups of 24 students, facilitating workshops for up to 30 students, and delivering content to audiences of up to 100 students in larger workshop settings. I have provided one-on-one support to students during lab sessions, ensuring a deeper understanding of the material. The courses I have demonstrated for include MTRN3500, MMAN2300, and DESN2000, showcasing my versatility and commitment to fostering academic success across diverse learning environments.
           </p>
         </SectionContent>
       </Section>
