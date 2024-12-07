@@ -5,6 +5,9 @@ import AboutMe from './page/aboutMe';
 import Projects from './page/projects'
 import Experience from './page/Experience';
 import HandGestureRobot from './page/handgesture';
+import MergeSortVis from './page/mergeSortVis';
+import MazeSolver from './page/mazesolver';
+import WebPage from './page/webpage';
 function Router() {
   // Initialising all variales
   const navigate = useNavigate();
@@ -36,6 +39,9 @@ function Router() {
           <Route path="/projects" element={<Projects/>} />
           <Route path="/experience" element={<Experience/>} />
           <Route path="/projects/handgesturerobot" element={<HandGestureRobot/>} />
+          <Route path="/projects/mergesortvis" element={<MergeSortVis/>} />
+          <Route path="/projects/mazesolver" element={<MazeSolver/>} />
+          <Route path="/projects/webpage" element={<WebPage/>} />
         </Routes>
         </div>
       </div>

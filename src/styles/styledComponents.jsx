@@ -57,7 +57,7 @@ export const InvertStyledButton = styled.button(() => ({
 export const StyledHr = styled.hr(() => ({
   border: 'none',
   borderTop: '2px solid #7AB2D3',
-  margin: '10px 80px',
+  margin: '10px 15%',
   width: 'auto',
 }));
 
@@ -163,7 +163,7 @@ export const ProjectBox = styled.div(({darkMode}) => ({
   maxWidth: '100%',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '10px',
+  gap: '100px',
   flex: '1',
   margin:'10px 300px',
   padding: '10px 70px',
@@ -190,7 +190,6 @@ export const InnerText = styled.div`
     text-align: center;
     width: 100%;
     overfow: hidden;
-    
 `;
 export const InnerTitle = styled.div`
     font-family: 'Ubuntu', Arial, sans-serif;
