@@ -28,7 +28,7 @@ function Router() {
             {/* <Logo>Presto</Logo> */}
           </NavBarBtn>
           <NavBarBtn>
-            <InvertStyledButton onClick={() => {navigate('/')}}>About Me</InvertStyledButton>
+            <InvertStyledButton onClick={() => {navigate('/')}}>About</InvertStyledButton>
             <InvertStyledButton onClick={() => {navigate('/experience')}}>Experience</InvertStyledButton>
             <InvertStyledButton onClick={() => {navigate('/projects')}}>Projects</InvertStyledButton>
 

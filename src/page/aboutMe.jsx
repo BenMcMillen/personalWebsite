@@ -12,7 +12,7 @@ const AboutMe = function({ }) {
   return <>
     <>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap'}}>
-        <div style={{display: 'flex', flexDirection:'column', textAlign: 'center', alignContent: 'center', alignItems: 'center', paddingLeft: '25%', paddingRight: '25%', gap:'10px'}}>
+        <div style={{display: 'flex', flexDirection:'column', textAlign: 'center', alignContent: 'center', alignItems: 'center', paddingLeft: '25%', paddingRight: '25%', gap:'10px', paddingTop:'100px'}}>
           <CircleImage src={im1} alt='Profile Picture'/>
           <MainHeading>About Me</MainHeading>
           <div style={{color: 'black'}}> Hello! My name is Ben, and I’m a final-year Mechatronics Engineering and Computer Science student at UNSW. Currently, I am a Casual Academic at UNSW, where I have the opportunity to work closely with students, as well as an Embedded Systems Engineering Intern at Endeavour Aerospace. I am passionate about robotics and embedded systems and enjoy working on projects that blend innovation with practical solutions.</div>
