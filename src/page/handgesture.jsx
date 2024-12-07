@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle,
+import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle, BackLink,
   StyledHr, MainHeading, BodyImage, MainHeading2} from '../styles/styledComponents';
 import im1 from '../assets/handGestureRobot.png';
 import im2 from '../assets/handGesturerobotTransmitter.png';
@@ -46,7 +46,12 @@ const HandGestureRobot = function({ }) {
           <div style={{color:'black'}}>The Python software played a crucial role in the system, utilizing the OpenCV library to interpret hand gestures captured through a camera. Leveraging AI-based algorithms, the software analyzed the gestures in real-time and translated them into corresponding control messages. These messages were then sent to the Arduino UNO connected to the transmitter, enabling precise and responsive control of the robot. This integration of computer vision and AI provided an intuitive, user-friendly interface, transforming hand movements into actionable commands for the robot.</div>
         </div>
       </div>
+      <div style={{ textAlign: 'center' }}>
+        <BackLink to="/projects">Back to Projects</BackLink>
+      </div>
     </div>
+    
+
     
         
           

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import im1 from '../assets/EAlogo.png';
 import im2 from '../assets/UNSW-1-300x300.png';
 import im3 from '../assets/images.png';
+import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle,
+  StyledHr, MainHeading, BodyImage, MainHeading2, BackLink} from '../styles/styledComponents';
 // Styled-components for layout and styling
 const Container = styled.div`
   padding: 40px;
@@ -31,6 +33,9 @@ const SectionTitle = styled.h2`
   font-size: 1.8em;
   text-transform: uppercase;
   margin-bottom: 15px;
+  @media (max-width: 650px) {
+        font-size: 1.3em; /* Decrease font size for smaller screens */
+  }
 `;
 
 const Image = styled.img`
@@ -39,19 +44,6 @@ const Image = styled.img`
   flex: 0 1 auto;
   border-radius: 8px;
   border: 2px solid grey;
-`;
-
-const BackLink = styled(Link)`
-  display: inline-block;
-  margin-top: 30px;
-  font-size: 1.2em;
-  color: #007BFF;
-  text-decoration: none;
-  text-align: center;
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const Experience = () => {

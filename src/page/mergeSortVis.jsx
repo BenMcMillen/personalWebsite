@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle,
+import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle, BackLink,
   StyledHr, MainHeading, BodyImage, MainHeading2} from '../styles/styledComponents';
   import im1 from '../assets/UnsolvedMergeSort.png';
   import im2 from '../assets/mergeSortVisHalf.png';
@@ -44,6 +44,9 @@ const MergeSortVis = function({ }) {
           <MainHeading2>Completed Solve</MainHeading2>
           <div style={{color:'black'}}>Once the algorithm has completed sorting the data, the bars representing the numbers will change to a purple color, indicating that the sorting process is finished. At this point, the software will prompt the user to generate a new set of data, providing the option to start the sorting process again with a fresh set of unsorted values. This seamless transition allows the user to easily restart the process and continue exploring the merge sort algorithm with different data sets.</div>
         </div>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <BackLink to="/projects">Back to Projects</BackLink>
       </div>
     </div>
     

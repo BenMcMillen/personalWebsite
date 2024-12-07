@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle,
+import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle, BackLink,
   StyledHr, MainHeading, BodyImage, MainHeading2} from '../styles/styledComponents';
 
 const WebPage = function({ }) {
@@ -21,6 +21,9 @@ const WebPage = function({ }) {
       <a style={{textAlign: 'center'}} href="https://github.com/BenMcMillen/personalWebsite" target="_blank" rel="noopener noreferrer">
             Github Repository
           </a>
+      <div style={{ textAlign: 'center' }}>
+        <BackLink to="/projects">Back to Projects</BackLink>
+      </div>
     </div>
     
         

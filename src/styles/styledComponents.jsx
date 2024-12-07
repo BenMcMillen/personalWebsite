@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 // global style for entire website such that margins are removed and font is consistant
 export const GlobalBodyStyle = createGlobalStyle`
@@ -159,17 +159,22 @@ export const ProjectBox = styled.div(({darkMode}) => ({
   border: '5px solid #4A628A',
   borderRadius: '30px',
   display: 'flex',
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
   maxHeight: '250px',
   minHeight: '250px',
-  maxWidth: '100%',
+  maxWidth: '80%',
   justifyContent: 'center',
   alignItems: 'center',
   gap: '100px',
   flex: '1',
-  margin:'10px 300px',
-  padding: '10px 70px',
+  margin:'10px 20%',
+  padding: '10px 2px',
   overflow: 'hidden',
+
+  '@media (max-width: 650px)': {
+    margin:'10px 10%',
+  },
+
 }));
 
 export const SquareImage = styled.img(() => ({
@@ -177,21 +182,30 @@ export const SquareImage = styled.img(() => ({
   width: '220px',
   height: '220px',
   border: '6px solid #4A628A',
+
+  '@media (max-width: 650px)': {
+    width: '100px',
+    height: '100px',
+    display: 'none'
+  },
 }));
 
 
 export const InnerText = styled.div`
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.2em;
     margin: 5px 0;
-    color: black;
+    color: #555;
     background-color: white;
     border-radius: 5px;
     padding: 5px;
     text-align: center;
     width: 100%;
     overfow: hidden;
+
+     @media (max-width: 650px) {
+        display: none;
+    }
 `;
 export const InnerTitle = styled.div`
     font-family: 'Ubuntu', Arial, sans-serif;
@@ -225,14 +239,28 @@ export const MainHeading2 = styled.h2`
     font-weight: 700;
     font-size: 2.2em; /* Default font size */
 
-    color: black;
+    color: #333;
     text-transform: uppercase;
     background-color: white;
     border-radius: 5px;
     padding: 5px;
     text-align: center;
     display: inline-block;
+    margin-bottom: 10px;
 
     @media (max-width: 650px) {
         font-size: 1.8em; /* Decrease font size for smaller screens */
     }`
+
+export const BackLink = styled(Link)`
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 1.2em;
+  color: #007BFF;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
