@@ -22,6 +22,13 @@ const Projects = function({ }) {
             <InnerText>This project involves the development of a hand gesture-controlled robot, utilizing both Arduino and Python programming... </InnerText>
         </div>
       </ProjectBox>
+      <ProjectBox onClick={() => {navigate('/projects/robotimplementation')}}>
+        <SquareImage src='src/assets/sim.png'/>
+        <div style={{display: 'flex',flexDirection:'column', justifyContent: 'flex-start', overflow: 'hidden', maxWidth:'800px'}}>
+            <MainHeading2>Robot Implementation</MainHeading2>
+            <InnerText>This project is a robotic car system designed to showcase advanced programming concepts and efficient code organization... </InnerText>
+        </div>
+      </ProjectBox>
       <ProjectBox onClick={() => {navigate('/projects/mergesortvis')}}>
         <SquareImage src='src/assets/mergeSortVisHalf.png'/>
         <div style={{display: 'flex',flexDirection:'column', justifyContent: 'flex-start',maxWidth:'800px'}}>

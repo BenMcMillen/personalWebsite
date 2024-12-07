@@ -8,6 +8,7 @@ import HandGestureRobot from './page/handgesture';
 import MergeSortVis from './page/mergeSortVis';
 import MazeSolver from './page/mazesolver';
 import WebPage from './page/webpage';
+import RobotImp from './page/robotImp';
 function Router() {
   // Initialising all variales
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ function Router() {
           <Route path="/projects/mergesortvis" element={<MergeSortVis/>} />
           <Route path="/projects/mazesolver" element={<MazeSolver/>} />
           <Route path="/projects/webpage" element={<WebPage/>} />
+          <Route path="/projects/robotimplementation" element={<RobotImp/>} />
         </Routes>
         </div>
       </div>
