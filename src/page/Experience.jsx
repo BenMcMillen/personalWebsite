@@ -87,7 +87,7 @@ const Experience = () => {
 
       {/* Back to Home Link */}
       <div style={{ textAlign: 'center' }}>
-        <BackLink to="/aboutme">Back to Home</BackLink>
+        <BackLink to="/">Back to Home</BackLink>
       </div>
     </Container>
   );
