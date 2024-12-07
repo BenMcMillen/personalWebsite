@@ -16,7 +16,7 @@ function Router() {
 
   // use effect which navigates to the correct location given a change in pathname or token
   useEffect(() => {
-      navigate('/aboutme');
+      navigate('/');
   }, [])
 
   return (
@@ -28,7 +28,7 @@ function Router() {
             {/* <Logo>Presto</Logo> */}
           </NavBarBtn>
           <NavBarBtn>
-            <InvertStyledButton onClick={() => {navigate('/aboutme')}}>About Me</InvertStyledButton>
+            <InvertStyledButton onClick={() => {navigate('/')}}>About Me</InvertStyledButton>
             <InvertStyledButton onClick={() => {navigate('/experience')}}>Experience</InvertStyledButton>
             <InvertStyledButton onClick={() => {navigate('/projects')}}>Projects</InvertStyledButton>
 
@@ -36,7 +36,7 @@ function Router() {
         </NavBar>
         <div style={{flex: '1'}}>
         <Routes>
-          <Route path="/aboutme" element={<AboutMe/>} />
+          <Route path="/" element={<AboutMe/>} />
           <Route path="/projects" element={<Projects/>} />
           <Route path="/experience" element={<Experience/>} />
           <Route path="/projects/handgesturerobot" element={<HandGestureRobot/>} />
