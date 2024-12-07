@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledButton,
   StyledHr, MainHeading, CircleImage, InvertStyledButton} from '../styles/styledComponents';
-import im1 from 'src/assets/ProfilePicture.jpg';
-import im2 from 'src/assets/icons8-linkedin.svg';
+import im1 from '/assets/ProfilePicture.jpg';
+import im2 from '/assets/icons8-linkedin.svg';
 const AboutMe = function({ }) {
   // Initilise local varaibles
   const navigate = useNavigate();
