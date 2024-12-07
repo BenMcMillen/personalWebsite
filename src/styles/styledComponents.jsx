@@ -91,7 +91,9 @@ export const MainHeading = styled.h2`
     text-align: center;
     width: 100%;
     
-`;
+    @media (max-width: 650px) {
+        font-size: 2.2em; /* Decrease font size for smaller screens */
+    }`;
 
 // styling for main body text
 export const MainBody = styled.div(({darkMode}) => ({
