@@ -4,7 +4,7 @@ import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle, BackLink,
   StyledHr, MainHeading, BodyImage, MainHeading2} from '../styles/styledComponents';
   import im1 from '../assets/mazeGeneration.png';
   import im2 from '../assets/mazeGettingSolved.png';
-  import im3 from '../assets/MazeSolved.png';
+  import im3 from '../assets/mazeSolved.png';
 const MergeSortVis = function({ }) {
   // Initilise local varaibles
   const navigate = useNavigate();
