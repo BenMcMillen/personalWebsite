@@ -3,7 +3,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 // global style for entire website such that margins are removed and font is consistant
 export const GlobalBodyStyle = createGlobalStyle`
-    body{
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');  
+  body{
         margin: 0px;
         font-family: 'Arial';
         color: '#4A628A';
@@ -27,6 +28,8 @@ export const StyledButton = styled.button(() => ({
   padding: '10px 20px',
   cursor: 'pointer',
   borderRadius: '5px',
+  borderRadius: '30px',
+  fontWeight:'700',
   transition: 'background-color 0.3s ease',
   // on hover add effect
   '&:hover': {
@@ -40,9 +43,10 @@ export const InvertStyledButton = styled.button(() => ({
   color: '#4A628A',
   padding: '10px 20px',
   cursor: 'pointer',
-  borderRadius: '5px',
+  borderRadius: '30px',
   transition: 'background-color 0.3s ease',
-  border: "1px solid #4A628A",
+  border: "3px solid #4A628A",
+  fontWeight: '700',
 
   // on hover add effect
   '&:hover': {
@@ -75,19 +79,20 @@ export const Logo = styled.h3(({darkMode}) => ({
 }));
 
 // Styling for main heading text
-export const MainHeading = styled.h2(() => ({
-  fontWeight: '600',
-  margin: '5px 0',
-  color: 'black',
-  fontFamily:'Roboto',
-  textTransform: 'uppercase',
-  backgroundColor: 'white', 
-  borderRadius:'5px',
-  padding:'5px',
-  width: "98px",
-  marginBottom: "0px",
-  textDecoration: "underline"
-}));
+export const MainHeading = styled.h2`
+    font-family: 'Ubuntu', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    margin: 5px 0;
+    color: black;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    
+`;
 
 // styling for main body text
 export const MainBody = styled.div(({darkMode}) => ({
@@ -101,7 +106,7 @@ export const MainBody = styled.div(({darkMode}) => ({
   marginBottom: "0px",
   display: "flex",
   flexDirection: 'column',
-  gap: "7px"
+  gap: "7px",
 }));
 
 // styling for header text
