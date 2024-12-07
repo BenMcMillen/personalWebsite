@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle, BackLink,
   StyledHr, MainHeading, BodyImage, MainHeading2} from '../styles/styledComponents';
-  import im1 from '../assets/UnsolvedMergeSort.png';
-  import im2 from '../assets/mergeSortVisHalf.png';
-  import im3 from '../assets/solvedMergeSort.png';
+import im1 from '../assets/UnsolvedmergeSort.png';
+import im2 from '../assets/mergeSortVisHalf.png';
+import im3 from '../assets/solvedMergeSort.png';
 const MergeSortVis = function({ }) {
   // Initilise local varaibles
   const navigate = useNavigate();
