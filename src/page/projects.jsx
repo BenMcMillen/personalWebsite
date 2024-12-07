@@ -39,8 +39,8 @@ const Projects = function({ }) {
       <ProjectBox onClick={() => {navigate('/projects/webpage')}}>
         <SquareImage src='src/assets/webpage.png'/>
         <div style={{display: 'flex',flexDirection:'column', justifyContent: 'flex-start',maxWidth:'800px'}}>
-        <InnerTitle>This WebPage</InnerTitle>
-        <InnerText> This webpage was designed as a way to highlight both my experience and projects completed... </InnerText>
+        <InnerTitle>This WebSite</InnerTitle>
+        <InnerText> This website was designed as a way to highlight both my experience and projects completed... </InnerText>
         </div>
       </ProjectBox>
 
