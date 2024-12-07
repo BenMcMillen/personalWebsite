@@ -4,6 +4,7 @@ import { NavBar, NavBarBtn, GlobalBodyStyle, Logo, StyledButton, BackgroundMainD
 import AboutMe from './page/aboutMe';
 import Projects from './page/projects'
 import Experience from './page/Experience';
+import HandGestureRobot from './page/handgesture';
 function Router() {
   // Initialising all variales
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Router() {
   return (
     <>
     <GlobalBodyStyle/>
-      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', height: '100vh', width: '100vw' }}>
+      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', height: 'auto', width: '100vw' }}>
         <NavBar>
           <NavBarBtn>
             {/* <Logo>Presto</Logo> */}
@@ -34,6 +35,7 @@ function Router() {
           <Route path="/aboutme" element={<AboutMe/>} />
           <Route path="/projects" element={<Projects/>} />
           <Route path="/experience" element={<Experience/>} />
+          <Route path="/projects/handgesturerobot" element={<HandGestureRobot/>} />
         </Routes>
         </div>
       </div>

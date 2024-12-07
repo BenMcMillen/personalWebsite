@@ -3,14 +3,13 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 // global style for entire website such that margins are removed and font is consistant
 export const GlobalBodyStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');  
-  body{
+ body{
         margin: 0px;
         font-family: 'Arial';
         color: '#4A628A';
         background-color: white;
         width: 100vw;
-        height: 100vh
+        height: auto;
     }
 `;
 
@@ -133,11 +132,16 @@ export const NavBar = styled.div(({darkMode}) => ({
   backgroundColor: darkMode ? '#121212' : '#4A628A',
   display: 'flex',
   maxHeight: '90px',
+  minHeight: '90px',
   justifyContent: 'center',
   alignItems: 'center',
   gap: '10px',
   padding: '0px 30px',
-  flex: '1'
+  flex: '1',
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  right: '0'
 }));
 
 export const CircleImage = styled.img(() => ({
@@ -146,3 +150,60 @@ export const CircleImage = styled.img(() => ({
   height: '150px',
   border: '6px solid #4A628A',
 }));
+
+
+export const ProjectBox = styled.div(({darkMode}) => ({
+  backgroundColor: darkMode ? '#121212' : 'white',
+  border: '5px solid #4A628A',
+  borderRadius: '30px',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  maxHeight: '250px',
+  minHeight: '250px',
+  maxWidth: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '10px',
+  flex: '1',
+  margin:'10px 300px',
+  padding: '10px 70px',
+  overflow: 'hidden',
+}));
+
+export const SquareImage = styled.img(() => ({
+  borderRadius: '20px',
+  width: '220px',
+  height: '220px',
+  border: '6px solid #4A628A',
+}));
+
+
+export const InnerText = styled.div`
+    font-family: 'Ubuntu', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    overfow: hidden;
+    
+`;
+export const InnerTitle = styled.div`
+    font-family: 'Ubuntu', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+    margin: 5px 0;
+    color: black;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    text-decoration: underline;
+    overfow: hidden;
+`;
