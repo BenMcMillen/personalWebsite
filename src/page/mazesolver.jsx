@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle,
   StyledHr, MainHeading, BodyImage, MainHeading2} from '../styles/styledComponents';
-  import im1 from '../assets/UnsolvedMergeSort.png';
-  import im2 from '../assets/mergeSortVisHalf.png';
-  import im3 from '../assets/solvedMergeSort.png';
+  import im1 from '../assets/mazeGeneration.png';
+  import im2 from '../assets/mazeGettingSolved.png';
+  import im3 from '../assets/MazeSolved.png';
 const MergeSortVis = function({ }) {
   // Initilise local varaibles
   const navigate = useNavigate();
@@ -19,30 +19,30 @@ const MergeSortVis = function({ }) {
         <BodyImage src={im3}/>
       </div> */}
       <MainHeading style={{color:'black'}}>Maze Solver</MainHeading>
-      <div style={{color: 'black', textAlign:'center'}}>This program is an intuitive Merge Sort Visualizer, implemented in Python, designed to simplify and demonstrate the sorting process. It allows users to generate a set of 100 random numbers, each ranging from 1 to 100, by clicking the "Generate" button. Once the numbers are displayed, users can initiate the sorting process by clicking the "Sort" button, which uses the merge sort algorithm to methodically organize the numbers in ascending order. This Python-based visual representation provides a clear and engaging way to understand how merge sort operates step by step.</div>
-      <a style={{textAlign: 'center'}} href="https://github.com/BenMcMillen/Merge-Sort-Visualizer" target="_blank" rel="noopener noreferrer">
+      <div style={{color: 'black', textAlign:'center'}}>This project, implemented in C, empowers users to design their own custom mazes by creating and saving a text file within the designated "maze" folder. Each text file represents a unique maze configuration, giving users full control over the layout and complexity of the maze. Once a maze is designed, the program provides a visual representation of the maze-solving process. Depending on the user's preference, they can select either the Breadth-First Search (BFS) or Depth-First Search (DFS) algorithm to solve the maze. The software then visually demonstrates the selected algorithm in action, showing the step-by-step process of how the maze is navigated and solved. This interactive approach offers an engaging way to explore the mechanics of both algorithms while allowing for endless variations of maze designs.</div>
+      <a style={{textAlign: 'center'}} href="https://github.com/BenMcMillen/Maze-Solver" target="_blank" rel="noopener noreferrer">
             Github Repository
           </a>
       <div style={{display: 'flex', gap: '20px', marginTop: '50px', flexWrap: 'wrap'}}>
         <BodyImage src={im1}/>
         <div style={{flex: '1'}}>
-          <MainHeading2>Generation</MainHeading2>
-          <div style={{color:'black'}}> The program is designed to offer users an interactive experience, beginning with the ability to generate a new set of unsorted values, represented visually as columns on the user interface. These columns correspond to random numerical values that are initially displayed in an unsorted order. Users can generate a fresh set of random data as many times as desired, providing flexibility in testing and visualizing different scenarios. Once the user is ready, they can press the "Solve" button to initiate the sorting process. This action triggers the merge sort algorithm, which begins sorting the values step by step, allowing users to observe how the algorithm methodically organizes the data.</div>
+          <MainHeading2>Maze Creation</MainHeading2>
+          <div style={{color:'black'}}> This algorithm provides users with the ability to create custom mazes by generating a text file where walls are represented by the # symbol and open spaces are represented by blank spaces. The maze layout is entirely defined within this text file, allowing for great flexibility in designing complex or simple maze structures.</div>
         </div>
       </div>
       <div style={{display: 'flex', gap: '20px', marginTop: '50px', flexWrap: 'wrap'}}>
         <BodyImage src={im2}/>
         <div style={{flex: '1'}}>
-          <MainHeading2>Solving</MainHeading2>
-          <div style={{color:'black'}}> Once the sorting process is initiated, the program visually demonstrates the step-by-step execution of the merge sort algorithm on the data set. As the algorithm progresses, the currently active elements being worked on are highlighted in green, providing a clear and engaging representation of the sorting process. This color-coding allows users to track which portion of the data is being sorted at each stage. The visual demonstration continues until the entire data set is fully sorted, offering an intuitive and interactive way to observe how merge sort efficiently organizes the numbers.</div>
+          <MainHeading2>Maze being Solved</MainHeading2>
+          <div style={{color:'black'}}>  Once the maze is created, the user can choose to solve it using either the Breadth-First Search (BFS) or Depth-First Search (DFS) algorithm, depending on their preference. The selected algorithm will then process the maze, finding the optimal path through the maze, and visually displaying how the algorithm explores and solves the maze step by step inside of the console. This system offers a dynamic and user-driven approach to both maze creation and solving, enhancing the interactive learning experience.</div>
         </div>
         
       </div>
       <div style={{display: 'flex', gap: '20px', marginTop: '50px', flexWrap: 'wrap'}}>
         <BodyImage src={im3}/>
         <div style={{flex: '1'}}>
-          <MainHeading2>Completed Solve</MainHeading2>
-          <div style={{color:'black'}}>Once the algorithm has completed sorting the data, the bars representing the numbers will change to a purple color, indicating that the sorting process is finished. At this point, the software will prompt the user to generate a new set of data, providing the option to start the sorting process again with a fresh set of unsorted values. This seamless transition allows the user to easily restart the process and continue exploring the merge sort algorithm with different data sets.</div>
+          <MainHeading2>Maze Solved</MainHeading2>
+          <div style={{color:'black'}}>Finally once the path which solves the maze is determined, the algorithm visually demosntrates backtracking from the end of the maze to the start of the maze using gold colouring.</div>
         </div>
       </div>
     </div>
