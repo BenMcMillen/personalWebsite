@@ -206,3 +206,31 @@ export const InnerTitle = styled.div`
     text-decoration: underline;
     overfow: hidden;
 `;
+
+export const BodyImage = styled.img(() => ({
+  maxWidth: '400px',
+  maxHeight: '400px',
+  flex: '1',
+
+  '@media (max-width: 650px)': {
+    maxWidth: '250px', // Decrease the max width
+    maxHeight: '250px', // Decrease the max height
+  },
+}));
+
+export const MainHeading2 = styled.h2`
+    font-family: 'Ubuntu', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2.2em; /* Default font size */
+
+    color: black;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+
+    @media (max-width: 650px) {
+        font-size: 1.8em; /* Decrease font size for smaller screens */
+    }`
