@@ -12,7 +12,7 @@ import {
 } from "../styles/styledComponents";
 
 import im1 from "../assets/handGestureRobot.png";
-import im2 from "../assets/handGestureRobotTransmitter.png";
+import im2 from "../assets/handGesturerobotTransmitter.png";
 import im3 from "../assets/ExamplehandMovement.png";
 
 export default function HandGestureRobot() {
