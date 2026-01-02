@@ -10,8 +10,8 @@ import {
 } from "../styles/styledComponents";
 
 import im1 from "../assets/EAlogo.png";
-import im2 from "../assets/UNSW-1-300x300.png";
-import im3 from "../assets/images.png";
+import im4 from "../assets/UNSW-1-300x3001.png";
+import im5 from "../assets/images1.png";
 
 export default function Experience() {
   const items = [
@@ -29,7 +29,7 @@ export default function Experience() {
       company: "UNSW",
       start: "June 2024",
       end: "Present",
-      image: im2,
+      image: im4,
       description:
         "Led and presented in lab sessions and workshops, demonstrating mechatronics and computer science concepts through practical examples. Provided one-on-one support, and delivered content to groups ranging from small labs to larger workshop settings. Demonstrated for MTRN3500, MMAN2300, and DESN2000.",
     },
@@ -38,7 +38,7 @@ export default function Experience() {
       company: "Private",
       start: "Jan 2021",
       end: "Present",
-      image: im3,
+      image: im5,
       description:
         "Helped students build a deep understanding of mathematics and improve grades. Tailored lessons to individual needs across topics from algebra to calculus, and taught structured problem-solving approaches.",
     },
