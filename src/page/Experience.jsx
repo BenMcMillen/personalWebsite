@@ -1,96 +1,193 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Container,
+  Panel,
+  MainHeading,
+  MainHeading2,
+  Muted,
+  Hr,
+  SmallMuted,
+} from "../styles/styledComponents";
 
-import styled from 'styled-components';
-import im1 from '../assets/EAlogo.png';
-import im2 from '../assets/UNSW-1-300x300.png';
-import im3 from '../assets/images.png';
-import { StyledButton, ProjectBox,SquareImage, InnerText, InnerTitle,
-  StyledHr, MainHeading, BodyImage, MainHeading2, BackLink} from '../styles/styledComponents';
-// Styled-components for layout and styling
-const Container = styled.div`
-  padding: 40px;
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  padding: 120px 15%;
-`;
+import im1 from "../assets/EAlogo.png";
+import im2 from "../assets/UNSW-1-300x300.png";
+import im3 from "../assets/images.png";
 
-const Section = styled.div`
-  display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-`;
+export default function Experience() {
+  const items = [
+    {
+      title: "Embedded Systems Engineer (Intern)",
+      company: "Endeavour Aerospace",
+      start: "Nov 2024",
+      end: "June 2025",
+      image: im1,
+      description:
+        "Worked on the design and development of embedded systems for aerospace applications. Gained hands-on experience with low-level programming and real-time systems, contributing to key projects and collaborating with engineers to enhance system performance.",
+    },
+    {
+      title: "Casual Academic",
+      company: "UNSW",
+      start: "June 2024",
+      end: "Present",
+      image: im2,
+      description:
+        "Led and presented in lab sessions and workshops, demonstrating mechatronics and computer science concepts through practical examples. Provided one-on-one support, and delivered content to groups ranging from small labs to larger workshop settings. Demonstrated for MTRN3500, MMAN2300, and DESN2000.",
+    },
+    {
+      title: "High School Mathematics Tutor",
+      company: "Private",
+      start: "Jan 2021",
+      end: "Present",
+      image: im3,
+      description:
+        "Helped students build a deep understanding of mathematics and improve grades. Tailored lessons to individual needs across topics from algebra to calculus, and taught structured problem-solving approaches.",
+    },
+  ];
 
-const SectionContent = styled.div`
-  flex: 1;
-  color: #555;
-  font-size: 1.1em;
-  line-height: 1.6;
-`;
-
-const SectionTitle = styled.h2`
-  color: #333;
-  font-size: 1.8em;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  @media (max-width: 650px) {
-        font-size: 1.3em; /* Decrease font size for smaller screens */
-  }
-`;
-
-const Image = styled.img`
-  width: 300px;
-  height: 300px;
-  flex: 0 1 auto;
-  border-radius: 8px;
-  border: 2px solid grey;
-`;
-
-const Experience = () => {
   return (
     <Container>
-      <h1 style={{ textAlign: 'center', color: '#222' }}>My Professional Experience</h1>
+      <Panel>
+        <MainHeading>Experience</MainHeading>
+        <Muted style={{ textAlign: "center", marginTop: 10 }}>
+          A quick snapshot of my work experience.
+        </Muted>
 
-      {/* Embedded Systems Engineering Intern at Endeavour Aerospace Section */}
-      <Section>
-        <Image src={im1} alt="Embedded Systems Engineering Intern at Endeavour Aerospace" />
-        <SectionContent>
-          <SectionTitle>Embedded Systems Engineering Intern at Endeavour Aerospace</SectionTitle>
-          <p>
-            As an Embedded Systems Engineering Intern at Endeavour Aerospace, I worked on the design and development of embedded systems for aerospace applications. I gained hands-on experience with low-level programming, and real-time systems, contributing to key projects and collaborating with engineers to enhance system performance.
-          </p>
-        </SectionContent>
-      </Section>
+        <Hr />
 
-      {/* UNSW Casual Academic Section */}
-      <Section>
-        <Image src={im2} alt="UNSW Casual Academic" />
-        <SectionContent>
-          <SectionTitle>UNSW Casual Academic</SectionTitle>
-          <p>
-          As a Casual Academic at UNSW, I have had the privilege of leading and presenting in various teaching environments, ranging from intimate lab sessions to large-scale workshops. I demonstrated key concepts in mechatronics and computer science to undergraduate students, breaking down complex theories through practical examples and hands-on demonstrations. My experience includes conducting lab sessions for groups of 24 students, facilitating workshops for up to 30 students, and delivering content to audiences of up to 100 students in larger workshop settings. I have provided one-on-one support to students during lab sessions, ensuring a deeper understanding of the material. The courses I have demonstrated for include MTRN3500, MMAN2300, and DESN2000, showcasing my versatility and commitment to fostering academic success across diverse learning environments.
-          </p>
-        </SectionContent>
-      </Section>
+        <div className="timeline">
+          {items.map((it, idx) => (
+            <motion.div
+              key={`${it.company}-${it.title}`}
+              className="card"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.22, delay: Math.min(idx * 0.05, 0.2) }}
+            >
+              <div className="grid">
+                {/* Left: consistent logo box */}
+                <div className="logoBox">
+                  <img className="logoImg" src={it.image} alt={`${it.company} logo`} />
+                </div>
 
-       {/* High School Mathematics Tutor Section */}
-       <Section>
-        <Image src={im3} alt="High School Mathematics Tutor" />
-        <SectionContent>
-          <SectionTitle>High School Mathematics Tutor</SectionTitle>
-          <p>
-            During my time as a High School Mathematics Tutor, I helped students build a deep understanding of mathematical concepts and improve their grades. I tailored lessons to meet the individual needs of each student, covering topics from algebra to calculus, and provided personalized problem-solving techniques.
-          </p>
-        </SectionContent>
-      </Section>
-      
+                {/* Right: content */}
+                <div className="content">
+                  <div className="headerRow">
+                    <div className="titles">
+                      {/* Job title first */}
+                      <MainHeading2 style={{ margin: 0 }}>{it.title}</MainHeading2>
+                      {/* Company second */}
+                      <div className="company">{it.company}</div>
+                    </div>
 
-      {/* Back to Home Link */}
-      <div style={{ textAlign: 'center' }}>
-        <BackLink to="/">Back to Home</BackLink>
-      </div>
+                    {/* Dates on the right */}
+                    <div className="dates">
+                      <SmallMuted style={{ margin: 0 }}>
+                        {it.start} — {it.end}
+                      </SmallMuted>
+                    </div>
+                  </div>
+
+                  <p className="desc">{it.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <style>{`
+          .timeline{
+            display: grid;
+            gap: 14px;
+            margin-top: 6px;
+          }
+
+          .card{
+            background: white;
+            border: 1px solid rgba(15,23,42,0.10);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 10px 24px rgba(2,8,23,0.06);
+          }
+
+          .grid{
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 16px;
+            align-items: start;
+          }
+
+          /* Logo container is always the same size */
+          .logoBox{
+            width: 220px;
+            height: 160px;
+            border-radius: 16px;
+            border: 1px solid rgba(15,23,42,0.10);
+            background: rgba(247,248,251,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+          }
+
+          /* Logos scale consistently but keep aspect ratio */
+          .logoImg{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            filter: saturate(0.98);
+          }
+
+          .content{
+            min-width: 0;
+          }
+
+          .headerRow{
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            align-items: start;
+          }
+
+
+          .titles{
+            display: grid;
+            gap: 4px;
+          }
+
+          .company{
+            font-weight: 800;
+            color: rgba(15,23,42,0.72);
+            letter-spacing: -0.01em;
+          }
+
+          .dates{
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(15,23,42,0.10);
+            background: rgba(247,248,251,0.8);
+            height: fit-content;
+          }
+
+          .desc{
+            margin: 10px 0 0 0;
+            color: var(--muted);
+            line-height: 1.75;
+          }
+
+          @media (max-width: 820px){
+            .grid{
+              grid-template-columns: 1fr;
+            }
+            .logoBox{
+              width: 100%;
+              height: 140px;
+            }
+          }
+        `}</style>
+      </Panel>
     </Container>
   );
-};
-
-export default Experience;
+}

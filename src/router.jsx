@@ -1,54 +1,63 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation, Routes, Route } from 'react-router-dom';
-import { NavBar, NavBarBtn, GlobalBodyStyle, Logo, StyledButton, BackgroundMainDiv, InvertStyledButton } from './styles/styledComponents';
-import AboutMe from './page/aboutMe';
-import Projects from './page/projects'
-import Experience from './page/Experience';
-import HandGestureRobot from './page/handgesture';
-import MergeSortVis from './page/mergeSortVis';
-import MazeSolver from './page/mazesolver';
-import WebPage from './page/webpage';
-import RobotImp from './page/robotImp';
-function Router() {
-  // Initialising all variales
-  const navigate = useNavigate();
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { GlobalBodyStyle } from "./styles/styledComponents";
 
+import SiteNav from "./components/SiteNav";
+import FloatingDecor from "./components/FloatingDecor"; // optional: remove if you want ultra-simple
 
-  // use effect which navigates to the correct location given a change in pathname or token
-  useEffect(() => {
-      navigate('/');
-  }, [])
+import AboutMe from "./page/aboutMe";
+import Experience from "./page/Experience";
+import Projects from "./page/projects";
+import ContactMe from "./page/contactMe";
+
+import HandGestureRobot from "./page/handgesture";
+import RobotImp from "./page/robotImp";
+import MergeSortVis from "./page/mergeSortVis";
+import MazeSolver from "./page/mazesolver";
+import WebPage from "./page/webpage";
+import Thesis from "./page/thesis.jsx";
+
+function PageMotion({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -6 }}
+      transition={{ duration: 0.22 }}
+      style={{ position: "relative", zIndex: 1 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export default function Router() {
+  const location = useLocation();
 
   return (
     <>
-    <GlobalBodyStyle/>
-      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', height: 'auto', width: '100vw' }}>
-        <NavBar>
-          <NavBarBtn>
-            {/* <Logo>Presto</Logo> */}
-          </NavBarBtn>
-          <NavBarBtn>
-            <InvertStyledButton onClick={() => {navigate('/')}}>About</InvertStyledButton>
-            <InvertStyledButton onClick={() => {navigate('/experience')}}>Experience</InvertStyledButton>
-            <InvertStyledButton onClick={() => {navigate('/projects')}}>Projects</InvertStyledButton>
+      <GlobalBodyStyle />
+      <FloatingDecor />
+      <SiteNav />
 
-          </NavBarBtn>
-        </NavBar>
-        <div style={{flex: '1'}}>
-        <Routes>
-          <Route path="/" element={<AboutMe/>} />
-          <Route path="/projects" element={<Projects/>} />
-          <Route path="/experience" element={<Experience/>} />
-          <Route path="/projects/handgesturerobot" element={<HandGestureRobot/>} />
-          <Route path="/projects/mergesortvis" element={<MergeSortVis/>} />
-          <Route path="/projects/mazesolver" element={<MazeSolver/>} />
-          <Route path="/projects/webpage" element={<WebPage/>} />
-          <Route path="/projects/robotimplementation" element={<RobotImp/>} />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageMotion><AboutMe /></PageMotion>} />
+          <Route path="/experience" element={<PageMotion><Experience /></PageMotion>} />
+          <Route path="/projects" element={<PageMotion><Projects /></PageMotion>} />
+          <Route path="/contact" element={<PageMotion><ContactMe /></PageMotion>} />
+
+          
+          <Route path="/projects/thesis" element={<PageMotion><Thesis /></PageMotion>} />
+          <Route path="/projects/handgesturerobot" element={<PageMotion><HandGestureRobot /></PageMotion>} />
+          <Route path="/projects/robotimplementation" element={<PageMotion><RobotImp /></PageMotion>} />
+          <Route path="/projects/mergesortvis" element={<PageMotion><MergeSortVis /></PageMotion>} />
+          <Route path="/projects/mazesolver" element={<PageMotion><MazeSolver /></PageMotion>} />
+          <Route path="/projects/webpage" element={<PageMotion><WebPage /></PageMotion>} />
+
         </Routes>
-        </div>
-      </div>
+      </AnimatePresence>
     </>
-  )
+  );
 }
-
-export default Router

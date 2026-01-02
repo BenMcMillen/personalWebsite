@@ -8,23 +8,26 @@ import {
   Muted,
   Hr,
   BackLink,
-  StyledButton,
   InvertStyledButton,
+  StyledButton,
   BodyImage,
 } from "../styles/styledComponents";
 
-import im1 from "../assets/threads.png";
-import im2 from "../assets/sim.png";
+// Swap these to your real images if you want
+import im1 from "../assets/Thesis1.png"; // placeholder
+// import im2 from "../assets/your_thesis_image_2.png";
+// import im3 from "../assets/your_thesis_image_3.png";
 
-export default function RobotImp() {
-  const GITHUB_URL = ""; // keep empty = private
+export default function Thesis() {
+  const PDF_URL = ""; // optional: link to thesis PDF hosted somewhere
+  const GITHUB_URL = "https://github.com/BenMcMillen/Undergraduate-Thesis"; 
 
   return (
     <Container>
       <Panel>
-        <MainHeading>Robot Implementation</MainHeading>
+        <MainHeading>VIV Piezoelectric Energy Harvester (Thesis)</MainHeading>
         <Muted style={{ textAlign: "center", marginTop: 10 }}>
-          C++ robotics project with multi-module architecture and thread management.
+          Mechatronics Engineering Undergraduate Thesis: Vortex-induced vibration energy harvesting for underwater ROVs using ANSYS simulation + design iteration.
         </Muted>
 
         <Hr />
@@ -34,15 +37,23 @@ export default function RobotImp() {
             ← Back to Projects
           </BackLink>
 
-          {GITHUB_URL ? (
-            <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btnLink">
-              <StyledButton type="button">View GitHub</StyledButton>
-            </a>
-          ) : (
-            <div className="privatePill" title="Private repo">
-              Private Repo (on request)
-            </div>
-          )}
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            {PDF_URL ? (
+              <a href={PDF_URL} target="_blank" rel="noreferrer" className="btnLink">
+                <StyledButton type="button">Read Thesis</StyledButton>
+              </a>
+            ) : null}
+
+            {GITHUB_URL ? (
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btnLink">
+                <InvertStyledButton type="button">View GitHub</InvertStyledButton>
+              </a>
+            ) : (
+              <div className="privatePill" title="No public repo">
+                No public repo
+              </div>
+            )}
+          </div>
         </div>
 
         <motion.div
@@ -52,35 +63,32 @@ export default function RobotImp() {
           transition={{ duration: 0.22 }}
         >
           <div className="lead">
-            A robotic car system built for university coursework, demonstrating modular C++ design,
-            embedded integration, and concurrency. The project includes threading/heartbeat monitoring,
-            multiple subsystems (control, GNSS, sensors), and a clean multi-file architecture.
+            Designed an underwater piezoelectric energy harvesting concept for an ROV using vortex-induced vibrations (VIV).
+            The work focused on lightweight bluff-body/cantilever configurations, modal alignment with shedding frequency,
+            and practical packaging constraints inside the vehicle.
           </div>
 
           <div className="section">
             <div className="imgWrap">
-              <BodyImage className="img" src={im1} alt="Threading architecture" />
+              <BodyImage className="img" src={im1} alt="Thesis simulation / concept" />
             </div>
             <div className="text">
-              <MainHeading2 style={{ marginTop: 0 }}>Multi-module + Threaded System</MainHeading2>
+              <MainHeading2 style={{ marginTop: 0 }}>What I Designed / Simulated</MainHeading2>
               <div className="para">
-                Implemented core robot functionality across multiple modules (vehicle control, laser,
-                GNSS, controller logic, thread management). Thread heartbeat monitoring helped ensure
-                robustness and responsiveness.
+                • Multi-harvester concept with independent piezo sources<br />
+                • Material + geometry trade-offs (lightweight bluff body, cantilever selection)<br />
+                • Designed to minimise interference with ROV motion while extracting usable energy
               </div>
             </div>
           </div>
 
           <div className="section">
-            <div className="imgWrap">
-              <BodyImage className="img" src={im2} alt="Simulator and physical robot" />
-            </div>
-            <div className="text">
-              <MainHeading2 style={{ marginTop: 0 }}>Simulator + Physical Robot</MainHeading2>
+            <div className="text" style={{ gridColumn: "1 / -1" }}>
+              <MainHeading2 style={{ marginTop: 0 }}>Simulation Focus</MainHeading2>
               <div className="para">
-                Verified behaviour in both the provided simulator and on the physical robot platform.
-                The implementation was strong enough that it helped support tutoring the course in a
-                later trimester.
+                • ANSYS-based structural workflow to identify natural frequencies and deformation modes<br />
+                • Targeting resonance alignment with VIV shedding frequency for stronger response<br />
+                • Voltage/power estimation from strain/deflection and piezo properties (AlN d31-mode)
               </div>
             </div>
           </div>
@@ -89,11 +97,6 @@ export default function RobotImp() {
             <BackLink className="backPill" to="/projects">
               ← Back to Projects
             </BackLink>
-            {GITHUB_URL ? (
-              <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btnLink">
-                <InvertStyledButton type="button">Open Repository</InvertStyledButton>
-              </a>
-            ) : null}
           </div>
         </motion.div>
 
@@ -115,6 +118,7 @@ export default function RobotImp() {
             margin-top: 18px;
           }
           .btnLink{ text-decoration:none; }
+
           .backPill{
             display:inline-flex;
             align-items:center;
@@ -131,6 +135,7 @@ export default function RobotImp() {
             background: white;
             box-shadow: 0 10px 24px rgba(2,8,23,0.06);
           }
+
           .privatePill{
             padding: 10px 14px;
             border-radius: 999px;
@@ -140,6 +145,7 @@ export default function RobotImp() {
             font-weight: 900;
             font-size: 12px;
           }
+
           .lead{
             max-width: 980px;
             margin: 10px auto;
@@ -148,6 +154,7 @@ export default function RobotImp() {
             font-weight: 750;
             line-height: 1.75;
           }
+
           .section{
             margin-top: 18px;
             display:grid;
@@ -159,6 +166,7 @@ export default function RobotImp() {
             border: 1px solid rgba(15,23,42,0.08);
             background: rgba(255,255,255,0.75);
           }
+
           .imgWrap{
             border-radius: 14px;
             border: 1px solid rgba(15,23,42,0.10);
@@ -169,18 +177,21 @@ export default function RobotImp() {
             justify-content:center;
             overflow:hidden;
           }
+
           .img{
             width: 100%;
             max-width: 300px;
             height: auto;
             border-radius: 12px;
           }
+
           .para{
             color: rgba(15,23,42,0.72);
             font-weight: 750;
             line-height: 1.75;
             margin-top: 8px;
           }
+
           @media (max-width: 900px){
             .section{ grid-template-columns: 1fr; }
             .lead{ text-align: left; }

@@ -1,264 +1,276 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { createGlobalStyle } from "styled-components";
+import { Link } from "react-router-dom";
 
-// global style for entire website such that margins are removed and font is consistant
 export const GlobalBodyStyle = createGlobalStyle`
- body{
-        margin: 0px;
-        font-family: 'Arial';
-        color: '#4A628A';
-        background-color: white;
-        width: 100vw;
-        height: auto;
-    }
+  :root{
+    --bg: #ffffff;
+    --bg2: #f7f8fb;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: rgba(15,23,42,0.10);
+    --shadow: 0 16px 40px rgba(2,8,23,0.08);
+
+    --accent: #1d4ed8; /* blue */
+    --accent2: #0ea5e9; /* sky */
+  }
+
+  *{ box-sizing: border-box; }
+  html, body { height: 100%; }
+  body{
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    color: var(--text);
+    background:
+      radial-gradient(900px 500px at 15% 10%, rgba(29,78,216,0.07), transparent 60%),
+      radial-gradient(900px 500px at 85% 25%, rgba(14,165,233,0.06), transparent 55%),
+      var(--bg);
+    overflow-x: hidden;
+  }
+
+  a{ color: inherit; text-decoration: none; }
 `;
 
-// Styling for nav bar buttons
-export const NavBarBtn = styled.div(() => ({
-  display: 'flex',
-  alignItems: 'center',
-}));
-
-// Styled button
-export const StyledButton = styled.button(() => ({
-  backgroundColor: '#4A628A',
-  color: 'white',
-  border: 'none',
-  padding: '10px 20px',
-  cursor: 'pointer',
-  borderRadius: '30px',
-  fontWeight:'700',
-  transition: 'background-color 0.3s ease',
-  // on hover add effect
-  '&:hover': {
-    backgroundColor: 'deepskyblue',
-  },
-}));
-
-// Styled button with inverted colours
-export const InvertStyledButton = styled.button(() => ({
-  backgroundColor: 'white',
-  color: '#4A628A',
-  padding: '10px 20px',
-  cursor: 'pointer',
-  borderRadius: '30px',
-  transition: 'background-color 0.3s ease',
-  border: "3px solid #4A628A",
-  fontWeight: '700',
-
-  // on hover add effect
-  '&:hover': {
-    backgroundColor: 'deepskyblue',
-  },
-}));
-
-// Styled HR to be coloured
-export const StyledHr = styled.hr(() => ({
-  border: 'none',
-  borderTop: '2px solid #7AB2D3',
-  margin: '10px 15%',
-  width: 'auto',
-}));
-
-// Styling for text for Logo usage
-export const Logo = styled.h3(({darkMode}) => ({
-  fontSize: '1.5em',
-  fontWeight: '600',
-  margin: '5px 0',
-  color: '#4A628A',
-  textAlign: 'left',
-  textTransform: 'uppercase',
-  backgroundColor: darkMode? '#0a0a0a':'white', 
-  borderRadius:'5px',
-  padding:'5px',
-  border: "2px solid #4A628A",
-  width: "98px",
-  marginBottom: "0px",
-}));
-
-// Styling for main heading text
-export const MainHeading = styled.h2`
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 3em;
-    margin: 5px 0;
-    color: black;
-    text-transform: uppercase;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    width: 100%;
-    
-    @media (max-width: 650px) {
-        font-size: 2.2em; /* Decrease font size for smaller screens */
-    }`;
-
-// styling for main body text
-export const MainBody = styled.div(({darkMode}) => ({
-  fontWeight: '600',
-  margin: '5px 0',
-  color: '#4A628A',
-  textTransform: 'uppercase',
-  backgroundColor: darkMode ? "#0a0a0a" : "white",
-  borderRadius:'5px',
-  padding:'5px',
-  marginBottom: "0px",
-  display: "flex",
-  flexDirection: 'column',
-  gap: "7px",
-}));
-
-// styling for header text
-export const StyledHeader = styled.div(({darkMode}) => ({
-  backgroundColor: darkMode ? "#0a0a0a" : "white",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  gap: "25px",
-  flexWrap: "wrap",
-  padding: "4px 0px",
-}));
-
-// Styling of background colour for main body div
-export const BackgroundMainDiv = styled.div`
-  background-color: ${(props) => (props.darkMode ? '#0a0a0a' : '#ffffff')};
-  transition: background-color 0.3s ease;
-  height: 100%;
+export const Container = styled.div`
   width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* IMPORTANT: pushes content below fixed navbar */
+  padding: 110px clamp(16px, 4vw, 44px) 72px;
 `;
 
-// Styling fo the Nav bar
-export const NavBar = styled.div(({darkMode}) => ({
-  backgroundColor: darkMode ? '#121212' : '#4A628A',
-  display: 'flex',
-  maxHeight: '90px',
-  minHeight: '90px',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '10px',
-  padding: '0px 30px',
-  flex: '1',
-  position: 'fixed',
-  top: '0',
-  left: '0',
-  right: '0'
-}));
-
-export const CircleImage = styled.img(() => ({
-  borderRadius: '50%',
-  width: '150px',
-  height: '150px',
-  border: '6px solid #4A628A',
-}));
 
 
-export const ProjectBox = styled.div(({darkMode}) => ({
-  backgroundColor: darkMode ? '#121212' : 'white',
-  border: '5px solid #4A628A',
-  borderRadius: '30px',
-  display: 'flex',
-  justifyContent: 'center',
-  maxHeight: '250px',
-  minHeight: '250px',
-  maxWidth: '80%',
-  alignItems: 'center',
-  gap: '100px',
-  flex: '1',
-  margin:'10px 20%',
-  padding: '10px 2px',
-  overflow: 'hidden',
-
-  '@media (max-width: 650px)': {
-    margin:'10px 10%',
-  },
-
-}));
-
-export const SquareImage = styled.img(() => ({
-  borderRadius: '20px',
-  width: '220px',
-  height: '220px',
-  border: '6px solid #4A628A',
-
-  '@media (max-width: 650px)': {
-    width: '100px',
-    height: '100px',
-    display: 'none'
-  },
-}));
-
-
-export const InnerText = styled.div`
-    font-weight: 500;
-    font-size: 1.2em;
-    margin: 5px 0;
-    color: #555;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    width: 100%;
-    overfow: hidden;
-
-     @media (max-width: 650px) {
-        display: none;
-    }
-`;
-export const InnerTitle = styled.div`
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1.8em;
-    margin: 5px 0;
-    color: black;
-    text-transform: uppercase;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    width: 100%;
-    text-decoration: underline;
-    overfow: hidden;
+export const Panel = styled.div`
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  padding: clamp(16px, 3vw, 28px);
+  backdrop-filter: blur(8px);
 `;
 
-export const BodyImage = styled.img(() => ({
-  maxWidth: '400px',
-  maxHeight: '400px',
-  flex: '1',
+export const Section = styled.div`
+  margin-top: 16px;
+`;
 
-  '@media (max-width: 650px)': {
-    maxWidth: '250px', // Decrease the max width
-    maxHeight: '250px', // Decrease the max height
-  },
-}));
+export const Hr = styled.hr`
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 22px 0;
+`;
+
+export const MainHeading = styled.h2`
+  font-weight: 900;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: center;
+`;
 
 export const MainHeading2 = styled.h2`
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 2.2em; /* Default font size */
+  font-weight: 900;
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+`;
 
-    color: #333;
-    text-transform: uppercase;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
-    display: inline-block;
-    margin-bottom: 10px;
+export const Muted = styled.p`
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+`;
 
-    @media (max-width: 650px) {
-        font-size: 1.8em; /* Decrease font size for smaller screens */
-    }`
+export const SmallMuted = styled.p`
+  margin: 0;
+  color: var(--muted);
+  opacity: 0.85;
+  line-height: 1.6;
+  font-size: 14px;
+`;
+
+export const PillRow = styled.div`
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledButton = styled.button`
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(29,78,216,0.25);
+  background: var(--accent);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.2s ease, background 0.2s ease;
+
+  &:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+`;
+
+export const InvertStyledButton = styled.button`
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+
+  &:hover{ transform: translateY(-1px); background: var(--bg2); }
+`;
+
+
+export const CircleImage = styled.img`
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(2,8,23,0.08);
+`;
+
+export const SquareImage = styled.img`
+  border-radius: 16px;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(2,8,23,0.06);
+
+  @media (max-width: 650px){
+    width: 92px;
+    height: 92px;
+  }
+`;
+
+export const ProjectBox = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  margin: 14px auto;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(2,8,23,0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+
+  &:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(2,8,23,0.09);
+  }
+`;
+
+export const IconButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  transition: transform 0.15s ease, background 0.2s ease;
+
+  &:hover{
+    transform: translateY(-1px);
+    background: white;
+  }
+`;
 
 export const BackLink = styled(Link)`
   display: inline-block;
-  margin-top: 30px;
-  font-size: 1.2em;
-  color: #007BFF;
+  margin-top: 22px;
+  font-size: 1.05em;
+  color: var(--accent);
   text-decoration: none;
-  text-align: center;
+  &:hover { text-decoration: underline; }
+`;
 
-  &:hover {
-    text-decoration: underline;
+export const BodyImage = styled.img`
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(2,8,23,0.06);
+
+  @media (max-width: 650px){
+    max-width: 280px;
   }
+`;
+export const InnerText = styled.div`
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 16px;
+`;
+export const InnerTitle = styled.div`
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  font-size: 18px;
+  color: var(--text);
+`;
+// ===== Legacy compatibility exports (for older pages) =====
+
+export const NavBarBtn = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledHr = styled.hr`
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 22px 0;
+  width: 100%;
+`;
+
+export const StyledHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 6px 0;
+`;
+
+export const BackgroundMainDiv = styled.div`
+  min-height: 100vh;
+  width: 100%;
+  background: transparent;
+`;
+
+export const NavBar = styled.div`
+  /* Legacy component — you can keep it unused (SiteNav is the real navbar now) */
+  display: none;
+`;
+
+export const Logo = styled.h3`
+  font-size: 1.05em;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.02em;
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+`;
+
+export const MainBody = styled.div`
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border-radius: 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
