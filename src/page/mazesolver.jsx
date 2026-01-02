@@ -2,13 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Container,
-  Panel,
   MainHeading,
   MainHeading2,
   Muted,
   Hr,
   BackLink,
-  StyledButton,
   InvertStyledButton,
   BodyImage,
 } from "../styles/styledComponents";
@@ -17,27 +15,30 @@ import im1 from "../assets/mazeGeneration.png";
 import im2 from "../assets/mazeGettingSolved.png";
 import im3 from "../assets/mazeSolved.png";
 
+
 export default function MazeSolver() {
   const GITHUB_URL = "https://github.com/BenMcMillen/Maze-Solver";
 
   return (
     <Container>
-      <Panel>
+      <div className="pageWrap">
         <MainHeading>Maze Solver</MainHeading>
         <Muted style={{ textAlign: "center", marginTop: 10 }}>
-          C program that loads user-defined mazes and solves them using BFS or DFS with visual output.
+          Maze solver using search algorithms.
         </Muted>
 
         <Hr />
 
         <div className="topActions">
-          <BackLink className="backPill" to="/projects">
-            ← Back to Projects
-          </BackLink>
+          <BackLink className="backBtn" to="/projects">← Back to Projects</BackLink>
 
-          <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btnLink">
-            <StyledButton type="button">View GitHub</StyledButton>
-          </a>
+          <div className="btnRow">
+            {GITHUB_URL ? (
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="btnLink">
+                <InvertStyledButton type="button">View GitHub</InvertStyledButton>
+              </a>
+            ) : null}
+          </div>
         </div>
 
         <motion.div
@@ -92,93 +93,70 @@ export default function MazeSolver() {
           </div>
 
           <div className="bottomActions">
-            <BackLink className="backPill" to="/projects">
-              ← Back to Projects
-            </BackLink>
           </div>
         </motion.div>
 
         <style>{`
-          .topActions{
-            display:flex;
-            justify-content: space-between;
-            align-items:center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-          }
-          .bottomActions{
-            display:flex;
-            justify-content: center;
-            align-items:center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 18px;
-          }
+          .pageWrap{ max-width: 1000px; margin: 0 auto; padding-top: 40px; }
+          .topActions{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:6px; }
+          .bottomActions{ display:flex; justify-content:center; margin-top:18px; }
+          .btnRow{ display:flex; gap:10px; flex-wrap:wrap; }
           .btnLink{ text-decoration:none; }
-          .backPill{
-            display:inline-flex;
-            align-items:center;
-            gap:8px;
-            padding: 10px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(15,23,42,0.12);
-            background: rgba(247,248,251,0.8);
-            color: rgba(15,23,42,0.85);
-            font-weight: 900;
-            text-decoration:none;
-          }
-          .backPill:hover{
-            background: white;
-            box-shadow: 0 10px 24px rgba(2,8,23,0.06);
-          }
-          .lead{
-            max-width: 980px;
-            margin: 10px auto;
-            text-align: center;
-            color: rgba(15,23,42,0.72);
-            font-weight: 750;
-            line-height: 1.75;
-          }
-          .section{
-            margin-top: 18px;
-            display:grid;
-            grid-template-columns: 320px 1fr;
-            gap: 16px;
-            align-items: start;
-            padding: 14px;
-            border-radius: 16px;
-            border: 1px solid rgba(15,23,42,0.08);
-            background: rgba(255,255,255,0.75);
-          }
-          .imgWrap{
-            border-radius: 14px;
-            border: 1px solid rgba(15,23,42,0.10);
-            background: rgba(247,248,251,0.7);
-            padding: 10px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            overflow:hidden;
-          }
-          .img{
-            width: 100%;
-            max-width: 300px;
-            height: auto;
+
+          .backBtn{
+            display:inline-flex; align-items:center; justify-content:center;
+            height: 40px; padding: 0 14px;
             border-radius: 12px;
+            border: 1px solid rgba(15,23,42,0.12);
+            background: white;
+            color: rgba(15,23,42,0.90);
+            font-weight: 900;
+            text-decoration: none !important;
+            transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.15s ease;
           }
-          .para{
-            color: rgba(15,23,42,0.72);
-            font-weight: 750;
-            line-height: 1.75;
-            margin-top: 8px;
+          .backBtn:hover{
+            transform: translateY(-1px);
+            background: rgba(247,248,251,0.85);
+            box-shadow: 0 10px 24px rgba(2,8,23,0.08);
+            text-decoration: none !important;
           }
+
+          .lead{
+            max-width:980px; margin:10px auto; text-align:center;
+            color:rgba(15,23,42,0.72); font-weight:750; line-height:1.75;
+          }
+
+          .section{
+            margin-top:18px;
+            display:grid; grid-template-columns:320px 1fr;
+            gap:16px; align-items:start;
+            padding:14px; border-radius:16px;
+            border:1px solid rgba(15,23,42,0.08);
+            background:rgba(255,255,255,0.75);
+          }
+
+          .imgWrap{
+            border-radius:14px;
+            border:1px solid rgba(15,23,42,0.10);
+            background:rgba(247,248,251,0.7);
+            padding:10px; display:flex; align-items:center; justify-content:center; overflow:hidden;
+          }
+
+          .img{ width:100%; max-width:300px; height:auto; border-radius:12px; }
+
+          .para{ color:rgba(15,23,42,0.72); font-weight:750; line-height:1.75; margin-top:8px; }
+
           @media (max-width: 900px){
+            .pageWrap{ padding-top:24px; }
             .section{ grid-template-columns: 1fr; }
-            .lead{ text-align: left; }
+            .lead{ text-align:left; }
           }
         `}</style>
-      </Panel>
+      </div>
     </Container>
   );
 }
+
+
+
+

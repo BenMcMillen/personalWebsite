@@ -17,6 +17,7 @@ import MergeSortVis from "./page/mergeSortVis";
 import MazeSolver from "./page/mazesolver";
 import WebPage from "./page/webpage";
 import Thesis from "./page/thesis.jsx";
+import Parkpilot from "./page/parkpilot.jsx";
 
 function PageMotion({ children }) {
   return (
@@ -48,7 +49,9 @@ export default function Router() {
           <Route path="/projects" element={<PageMotion><Projects /></PageMotion>} />
           <Route path="/contact" element={<PageMotion><ContactMe /></PageMotion>} />
 
-          
+
+
+          <Route path="/projects/parkpilot" element={<PageMotion><Parkpilot /></PageMotion>} />
           <Route path="/projects/thesis" element={<PageMotion><Thesis /></PageMotion>} />
           <Route path="/projects/handgesturerobot" element={<PageMotion><HandGestureRobot /></PageMotion>} />
           <Route path="/projects/robotimplementation" element={<PageMotion><RobotImp /></PageMotion>} />

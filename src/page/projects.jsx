@@ -18,6 +18,7 @@ import im3 from "../assets/mergeSortVisHalf.png";
 import im4 from "../assets/mazeGettingSolved.png";
 import im5 from "../assets/webpage.png";
 import im6 from "../assets/Thesis1.png";
+import im7 from "../assets/Parkpilot1.png";
 
 const GitHubIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -52,7 +53,7 @@ export default function Projects() {
 
   const items = [
     {
-      title: "Harvester (Thesis)",
+      title: "Piezoeletric Energy Harvester (Thesis)",
       desc: "Designed & simulated a vortex-induced vibration piezoelectric energy harvester for underwater ROVs (ANSYS + structural/CFD workflow).",
       image: im6,
       route: "/projects/thesis",
@@ -74,6 +75,14 @@ export default function Projects() {
       route: "/projects/robotimplementation",
       github: "",
       category: "Mechatronics",
+    },
+    {
+      title: "ParkPilot Mobile App",
+      desc: "Group project which designed an implemented a mobile app to increase parking efficiency.",
+      image: im7,
+      route: "/projects/parkpilot",
+      github: "https://github.com/unsw-cse-comp99-3900/capstone-project-25t3-3900-f11a-date",
+      category: "Computer Science",
     },
     {
       title: "Merge Sort Visualizer",

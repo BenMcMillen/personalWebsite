@@ -11,20 +11,20 @@ import {
   BodyImage,
 } from "../styles/styledComponents";
 
+import im1 from "../assets/Parkpilot1.png";
+import im2 from "../assets/Parkpilot2.png";
+import im3 from "../assets/Parkpilot3.png";
 
-import im1 from "../assets/UnsolvedmergeSort.png";
-import im2 from "../assets/mergeSortVisHalf.png";
-import im3 from "../assets/solvedMergeSort.png";
-
-export default function MergeSortVis() {
-  const GITHUB_URL = "https://github.com/BenMcMillen/Merge-Sort-Visualizer";
+export default function ParkPilot() {
+  const GITHUB_URL = "https://github.com/unsw-cse-comp99-3900/capstone-project-25t3-3900-f11a-date";
 
   return (
     <Container>
       <div className="pageWrap">
-        <MainHeading>Merge Sort Visualizer</MainHeading>
+        <MainHeading>Park Pilot Mobile App</MainHeading>
         <Muted style={{ textAlign: "center", marginTop: 10 }}>
-          Interactive merge sort visualiser.
+          Smart parking + carbon tracking app with driver & parking-operator workflows.
+          Built as a full-stack team project (React Native + backend API).
         </Muted>
 
         <Hr />
@@ -48,48 +48,66 @@ export default function MergeSortVis() {
           transition={{ duration: 0.22 }}
         >
           <div className="lead">
-            Generates 100 random values and animates merge sort as it partitions and merges subarrays.
-            Active elements are highlighted during the process, then the final sorted result is shown.
+            ParkPilot is a mobile-first application designed to help drivers find parking and
+            quantify carbon savings, while giving parking operators tools to manage lots and
+            monitor usage. The focus was a clean UX, reliable navigation flow, and a structured API
+            backend.
           </div>
 
           <div className="section">
             <div className="imgWrap">
-              <BodyImage className="img" src={im1} alt="Unsorted generation" />
+              <BodyImage className="img" src={im1} alt="Robot main body" />
             </div>
             <div className="text">
-              <MainHeading2 style={{ marginTop: 0 }}>Generation</MainHeading2>
+              <MainHeading2 style={{ marginTop: 0 }}>What it Does</MainHeading2>
               <div className="para">
-                Users can generate a fresh dataset (1–100) and see the bars appear immediately in an
-                unsorted state. This makes it easy to rerun and observe different sorting behaviours.
+                • Driver flow: search/select lot → navigate to a chosen spot → rerouting support
+                <br />
+                • Carbon tracking: route-based distance → estimated savings stored against user
+                <br />
+                • Operator flow: view lots, monitor occupancy/usage, manage parking inventory
               </div>
             </div>
           </div>
 
           <div className="section">
             <div className="imgWrap">
-              <BodyImage className="img" src={im2} alt="Sorting in progress" />
+              <BodyImage className="img" src={im2} alt="Transmitter" />
             </div>
             <div className="text">
-              <MainHeading2 style={{ marginTop: 0 }}>Solving</MainHeading2>
+              <MainHeading2 style={{ marginTop: 0 }}>Tech & Implementation</MainHeading2>
               <div className="para">
-                When sorting begins, the algorithm highlights the currently active region as it works
-                through the merge steps. This gives a clean visual intuition of divide-and-conquer.
+                • Frontend: React Native (Expo) with reusable components + testing hooks (testIDs)
+                <br />
+                • Backend: REST API (FastAPI/Flask-style architecture), structured endpoints for lots,
+                routes, and carbon records
+                <br />
+                • Data flow: AsyncStorage-based session identity → API calls → UI state updates
               </div>
             </div>
           </div>
 
           <div className="section">
             <div className="imgWrap">
-              <BodyImage className="img" src={im3} alt="Sorted result" />
+              <BodyImage className="img" src={im3} alt="Gesture recognition example" />
             </div>
             <div className="text">
-              <MainHeading2 style={{ marginTop: 0 }}>Completed</MainHeading2>
+              <MainHeading2 style={{ marginTop: 0 }}>Highlights</MainHeading2>
               <div className="para">
-                Once complete, the bars switch to the finished colour state, indicating the dataset
-                is fully sorted. Users can then regenerate a new dataset and repeat.
+                • End-to-end feature shipping: UI → API integration → persisted records
+                <br />
+                • Clear separation of driver vs operator experiences
+                <br />
+                • Real-world constraints: reliability, UX clarity, and iterative improvements from feedback
               </div>
             </div>
           </div>
+
+
+
+
+
+
 
           <div className="bottomActions">
           </div>
@@ -155,5 +173,3 @@ export default function MergeSortVis() {
     </Container>
   );
 }
-
-
