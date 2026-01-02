@@ -1,6 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
 
+/* =========================
+   GLOBAL STYLES
+   ========================= */
 export const GlobalBodyStyle = createGlobalStyle`
   :root{
     --bg: #ffffff;
@@ -16,20 +19,70 @@ export const GlobalBodyStyle = createGlobalStyle`
 
   *{ box-sizing: border-box; }
   html, body { height: 100%; }
+
   body{
     margin: 0;
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     color: var(--text);
-    background:
-      radial-gradient(900px 500px at 15% 10%, rgba(29,78,216,0.07), transparent 60%),
-      radial-gradient(900px 500px at 85% 25%, rgba(14,165,233,0.06), transparent 55%),
-      var(--bg);
+
+    /* IMPORTANT: remove page-tied radial backgrounds from body */
+    background: var(--bg);
+
     overflow-x: hidden;
   }
 
   a{ color: inherit; text-decoration: none; }
 `;
 
+/* =========================
+   FIXED BACKGROUND BLOBS
+   (Render once in App.jsx)
+   ========================= */
+export const BackgroundBlobs = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+
+  &::before,
+  &::after{
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    filter: blur(0px);
+    opacity: 1;
+  }
+
+  /* Left blob */
+  &::before{
+    left: 0;
+    top: 0;
+    transform: translate(-25%, -10%);
+    background: radial-gradient(
+      900px 500px at 15% 10%,
+      rgba(29,78,216,0.07),
+      transparent 60%
+    );
+  }
+
+  /* Right blob */
+  &::after{
+    right: 0;
+    top: 0;
+    transform: translate(20%, 10%);
+    background: radial-gradient(
+      900px 500px at 85% 25%,
+      rgba(14,165,233,0.06),
+      transparent 55%
+    );
+  }
+`;
+
+/* =========================
+   LAYOUT
+   ========================= */
 export const Container = styled.div`
   width: 100%;
   max-width: 1100px;
@@ -38,8 +91,6 @@ export const Container = styled.div`
   /* IMPORTANT: pushes content below fixed navbar */
   padding: 110px clamp(16px, 4vw, 44px) 72px;
 `;
-
-
 
 export const Panel = styled.div`
   background: rgba(255,255,255,0.85);
@@ -60,21 +111,24 @@ export const Hr = styled.hr`
   margin: 22px 0;
 `;
 
+/* =========================
+   TYPOGRAPHY
+   ========================= */
 export const MainHeading = styled.h2`
-  font-weight: 900;
-  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 750;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   text-align: center;
 `;
 
 export const MainHeading2 = styled.h2`
-  font-weight: 900;
-  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  font-weight: 650;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
   margin: 0 0 8px 0;
   letter-spacing: -0.01em;
-  text-transform: uppercase;
+  text-transform: none;
 `;
 
 export const Muted = styled.p`
@@ -92,6 +146,9 @@ export const SmallMuted = styled.p`
   font-size: 14px;
 `;
 
+/* =========================
+   BUTTONS
+   ========================= */
 export const PillRow = styled.div`
   display: flex;
   gap: 10px;
@@ -128,7 +185,9 @@ export const InvertStyledButton = styled.button`
   &:hover{ transform: translateY(-1px); background: var(--bg2); }
 `;
 
-
+/* =========================
+   IMAGES / CARDS
+   ========================= */
 export const CircleImage = styled.img`
   border-radius: 50%;
   width: 150px;
@@ -169,6 +228,7 @@ export const ProjectBox = styled.div`
   }
 `;
 
+/* (You can square these off later if you want) */
 export const IconButton = styled.a`
   display: inline-flex;
   align-items: center;
@@ -208,18 +268,21 @@ export const BodyImage = styled.img`
     max-width: 280px;
   }
 `;
+
 export const InnerText = styled.div`
   color: var(--muted);
   line-height: 1.65;
   font-size: 16px;
 `;
+
 export const InnerTitle = styled.div`
   font-weight: 900;
   letter-spacing: -0.01em;
   font-size: 18px;
   color: var(--text);
 `;
-// ===== Legacy compatibility exports (for older pages) =====
+
+/* ===== Legacy compatibility exports (for older pages) ===== */
 
 export const NavBarBtn = styled.div`
   display: flex;
@@ -248,7 +311,6 @@ export const BackgroundMainDiv = styled.div`
 `;
 
 export const NavBar = styled.div`
-  /* Legacy component — you can keep it unused (SiteNav is the real navbar now) */
   display: none;
 `;
 

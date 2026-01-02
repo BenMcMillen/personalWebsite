@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Container,
-  Panel,
   MainHeading,
   MainHeading2,
   Muted,
@@ -11,8 +10,6 @@ import {
   SquareImage,
   IconButton,
   Hr,
-  StyledButton,
-  InvertStyledButton,
 } from "../styles/styledComponents";
 
 import im1 from "../assets/handGestureRobot.png";
@@ -104,270 +101,289 @@ export default function Projects() {
     },
   ];
 
-  // Optional: category filter (kept simple)
   const [filter, setFilter] = useState("All Projects");
+
   const filtered = useMemo(() => {
     if (filter === "All Projects") return items;
     return items.filter((p) => p.category === filter);
-  }, [filter]);
+  }, [filter, items]);
 
   return (
     <Container>
-      <Panel>
-        <MainHeading>Projects</MainHeading>
-        <Muted style={{ textAlign: "center", marginTop: 10 }}>
-          Click a card for details. Use the GitHub icon to open the repo.
-        </Muted>
+      {/* No outer Panel – just a clean content wrapper */}
+      <div className="pageWrap">
+        <div className="headerBlock">
+          <MainHeading>Projects</MainHeading>
+          <Muted style={{ textAlign: "center", marginTop: 10 }}>
+            Click a card for details. Use the GitHub icon to open the repo.
+          </Muted>
 
-        <div className="toolbar">
-          <div className="toolbarLabel">Filter</div>
-          <div className="seg">
-            {["All Projects", "Mechatronics", "Computer Science"].map((k) => (
-              <button
-                key={k}
-                className={`segBtn ${filter === k ? "active" : ""}`}
-                onClick={() => setFilter(k)}
-                type="button"
-              >
-                {k}
-              </button>
-            ))}
+          <div className="toolbar">
+            <div className="toolbarLabel">Filter</div>
+            <div className="seg">
+              {["All Projects", "Mechatronics", "Computer Science"].map((k) => (
+                <button
+                  key={k}
+                  className={`segBtn ${filter === k ? "active" : ""}`}
+                  onClick={() => setFilter(k)}
+                  type="button"
+                >
+                  {k}
+                </button>
+              ))}
+            </div>
           </div>
+
+          <Hr />
         </div>
 
-        <Hr />
-
-        {filtered.map((p, idx) => (
-          <motion.div
-            key={p.title}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.22, delay: Math.min(idx * 0.04, 0.16) }}
-          >
-            <ProjectBox onClick={() => navigate(p.route)} className="projectBox">
-              <div className="cardRow">
-                {/* Image */}
-                <div className="media">
-                  {/* Use SquareImage but override sizing via CSS */}
-                  <SquareImage className="mediaImg" src={p.image} alt={p.title} />
-                </div>
-
-                {/* Content */}
-                <div className="content">
-                  <div className="titleRow">
-                    <MainHeading2 className="title" style={{ marginBottom: 0 }}>
-                      {p.title}
-                    </MainHeading2>
-                    <Pill>{p.category}</Pill>
+        <div className="cards">
+          {filtered.map((p, idx) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.22, delay: Math.min(idx * 0.04, 0.16) }}
+            >
+              <ProjectBox onClick={() => navigate(p.route)} className="projectBox">
+                <div className="cardRow">
+                  {/* Image */}
+                  <div className="media">
+                    <SquareImage className="mediaImg" src={p.image} alt={p.title} />
                   </div>
 
-                  <div className="desc">{p.desc}</div>
+                  {/* Content */}
+                  <div className="content">
+                    <div className="titleRow">
+                      <MainHeading2 className="title" style={{ marginBottom: 0 }}>
+                        {p.title}
+                      </MainHeading2>
+                      <Pill>{p.category}</Pill>
+                    </div>
 
-                  <div className="actionsRow" onClick={(e) => e.stopPropagation()}>
-                    {p.github ? (
-                      <IconButton
-                        href={p.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        title="Open GitHub repo"
-                      >
-                        <GitHubIcon />
-                      </IconButton>
-                    ) : (
-                      <div className="privatePill" title="Private repo">
-                        Private
-                      </div>
-                    )}
+                    <div className="desc">{p.desc}</div>
+
+                    <div className="actionsRow" onClick={(e) => e.stopPropagation()}>
+                      {p.github ? (
+                        <IconButton
+                          href={p.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          title="Open GitHub repo"
+                        >
+                          <GitHubIcon />
+                        </IconButton>
+                      ) : (
+                        <div className="privatePill" title="Private repo">
+                          Private
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </ProjectBox>
-          </motion.div>
-        ))}
+              </ProjectBox>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* Scoped CSS fixes mobile layout + image behaviour */}
         <style>{`
           /* =========================
-          FILTER TOOLBAR
+            PAGE WRAPPER (replaces Panel)
           ========================= */
-        .toolbar{
-          display:flex;
-          justify-content: space-between;
-          align-items:center;
-          gap: 12px;
-          flex-wrap: wrap;
-          margin-top: 14px;
-        }
+          .pageWrap{
+            width: min(1080px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 34px 0 42px;
+          }
 
-        .toolbarLabel{
-          font-weight: 900;
-          color: rgba(15,23,42,0.75);
-        }
+          /* keep heading area visually grouped without boxing it in */
+          .headerBlock{
+            margin-bottom: 14px;
+          }
 
-        /* Desktop / Tablet segmented control */
-        .seg{
-          display:flex;
-          gap: 8px;
-          flex-wrap: wrap;
-          background: rgba(247,248,251,0.85);
-          border: 1px solid rgba(15,23,42,0.10);
-          padding: 6px;
-          border-radius: 16px;
-        }
+          .cards{
+            display: grid;
+            gap: 14px;
+          }
 
-        .segBtn{
-          border: 0;
-          background: transparent;
-          padding: 8px 14px;
-          border-radius: 12px;
-          font-weight: 900;
-          font-size: 14px;
-          color: rgba(15,23,42,0.70);
-          cursor: pointer;
-          white-space: nowrap;
-          transition: background 0.12s ease, color 0.12s ease, box-shadow 0.12s ease;
-        }
-
-        .segBtn:hover{
-          background: rgba(255,255,255,0.65);
-        }
-
-        .segBtn.active{
-          background: white;
-          color: rgba(15,23,42,0.92);
-          box-shadow: 0 10px 24px rgba(2,8,23,0.06);
-        }
-
-        /* =========================
-          PROJECT CARDS
+          /* =========================
+            FILTER TOOLBAR
           ========================= */
-
-        .projectBox{
-          max-height: none !important;
-          min-height: 0 !important;
-          padding: 14px !important;
-        }
-
-        .cardRow{
-          display:grid;
-          grid-template-columns: 220px 1fr;
-          gap: 14px;
-          align-items: center;
-          width: 100%;
-        }
-
-        .media{
-          width: 100%;
-        }
-
-        /* Image behaviour (KEY FIX) */
-        .mediaImg{
-          width: 100% !important;
-          height: 160px !important;
-          display: block !important;
-          border-radius: 16px !important;
-          object-fit: cover !important;
-          border: 1px solid rgba(15,23,42,0.10) !important;
-          background: rgba(247,248,251,0.6);
-        }
-
-        .content{
-          min-width: 0;
-          display:flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .titleRow{
-          display:flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-
-        .title{
-          font-size: 1.45em;
-          line-height: 1.15;
-        }
-
-        .desc{
-          color: rgba(15,23,42,0.70);
-          line-height: 1.6;
-          font-weight: 700;
-        }
-
-        .actionsRow{
-          display:flex;
-          justify-content: flex-end;
-          margin-top: 2px;
-        }
-
-        .privatePill{
-          border-radius: 999px;
-          border: 1px solid rgba(15,23,42,0.10);
-          background: rgba(247,248,251,0.85);
-          color: rgba(15,23,42,0.65);
-          font-weight: 900;
-          font-size: 12px;
-          padding: 10px 12px;
-        }
-
-        /* =========================
-          MOBILE FIXES
-          ========================= */
-        @media (max-width: 650px){
-
-          /* Filter becomes grid */
           .toolbar{
-            align-items: flex-start;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+          }
+
+          .toolbarLabel{
+            font-weight: 900;
+            color: rgba(15,23,42,0.75);
           }
 
           .seg{
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display:flex;
             gap: 8px;
-            padding: 10px;
+            flex-wrap: wrap;
+            background: rgba(247,248,251,0.85);
+            border: 1px solid rgba(15,23,42,0.10);
+            padding: 6px;
             border-radius: 16px;
           }
 
-          /* All Projects spans full width */
           .segBtn{
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-            font-size: 13px;
-            white-space: normal;
-            line-height: 1.2;
+            border: 0;
+            background: transparent;
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 14px;
+            color: rgba(15,23,42,0.70);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.12s ease, color 0.12s ease, box-shadow 0.12s ease;
           }
 
-          .segBtn:first-child{
-            grid-column: 1 / -1;
+          .segBtn:hover{
+            background: rgba(255,255,255,0.65);
           }
 
-          /* Project cards stack cleanly */
+          .segBtn.active{
+            background: white;
+            color: rgba(15,23,42,0.92);
+            box-shadow: 0 10px 24px rgba(2,8,23,0.06);
+          }
+
+          /* =========================
+            PROJECT CARDS
+          ========================= */
+          .projectBox{
+            max-height: none !important;
+            min-height: 0 !important;
+            padding: 14px !important;
+          }
+
           .cardRow{
-            grid-template-columns: 1fr;
-            align-items: stretch;
+            display:grid;
+            grid-template-columns: 220px 1fr;
+            gap: 14px;
+            align-items: center;
+            width: 100%;
+          }
+
+          .media{
+            width: 100%;
           }
 
           .mediaImg{
-            height: 180px !important;
+            width: 100% !important;
+            height: 160px !important;
+            display: block !important;
+            border-radius: 16px !important;
+            object-fit: cover !important;
+            border: 1px solid rgba(15,23,42,0.10) !important;
+            background: rgba(247,248,251,0.6);
           }
 
-          .actionsRow{
-            justify-content: flex-start;
+          .content{
+            min-width: 0;
+            display:flex;
+            flex-direction: column;
+            gap: 8px;
+          }
+
+          .titleRow{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
           }
 
           .title{
-            font-size: 1.25em;
+            font-size: 1.45em;
+            line-height: 1.15;
           }
-        }
 
+          .desc{
+            color: rgba(15,23,42,0.70);
+            line-height: 1.6;
+            font-weight: 700;
+          }
+
+          .actionsRow{
+            display:flex;
+            justify-content: flex-end;
+            margin-top: 2px;
+          }
+
+          .privatePill{
+            border-radius: 999px;
+            border: 1px solid rgba(15,23,42,0.10);
+            background: rgba(247,248,251,0.85);
+            color: rgba(15,23,42,0.65);
+            font-weight: 900;
+            font-size: 12px;
+            padding: 10px 12px;
+          }
+
+          /* =========================
+            MOBILE FIXES
+          ========================= */
+          @media (max-width: 650px){
+            .pageWrap{
+              width: calc(100% - 32px);
+              padding: 22px 0 34px;
+            }
+
+            .toolbar{
+              align-items: flex-start;
+            }
+
+            .seg{
+              width: 100%;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 8px;
+              padding: 10px;
+              border-radius: 16px;
+            }
+
+            .segBtn{
+              width: 100%;
+              text-align: center;
+              padding: 10px;
+              font-size: 13px;
+              white-space: normal;
+              line-height: 1.2;
+            }
+
+            .segBtn:first-child{
+              grid-column: 1 / -1;
+            }
+
+            .cardRow{
+              grid-template-columns: 1fr;
+              align-items: stretch;
+            }
+
+            .mediaImg{
+              height: 180px !important;
+            }
+
+            .actionsRow{
+              justify-content: flex-start;
+            }
+
+            .title{
+              font-size: 1.25em;
+            }
+          }
         `}</style>
-      </Panel>
+      </div>
     </Container>
   );
 }
