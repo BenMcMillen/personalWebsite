@@ -18,6 +18,7 @@ import MazeSolver from "./page/mazesolver";
 import WebPage from "./page/webpage";
 import Thesis from "./page/thesis.jsx";
 import Parkpilot from "./page/parkpilot.jsx";
+import CLbuilder from "./page/clbuilder.jsx";
 
 function PageMotion({ children }) {
   return (
@@ -53,6 +54,7 @@ export default function Router() {
 
           <Route path="/projects/parkpilot" element={<PageMotion><Parkpilot /></PageMotion>} />
           <Route path="/projects/thesis" element={<PageMotion><Thesis /></PageMotion>} />
+          <Route path="/projects/clbuilder" element={<PageMotion><CLbuilder /></PageMotion>} />
           <Route path="/projects/handgesturerobot" element={<PageMotion><HandGestureRobot /></PageMotion>} />
           <Route path="/projects/robotimplementation" element={<PageMotion><RobotImp /></PageMotion>} />
           <Route path="/projects/mergesortvis" element={<PageMotion><MergeSortVis /></PageMotion>} />

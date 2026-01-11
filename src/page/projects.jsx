@@ -19,6 +19,7 @@ import im4 from "../assets/mazeGettingSolved.png";
 import im5 from "../assets/webpage.png";
 import im6 from "../assets/Thesis1.png";
 import im7 from "../assets/Parkpilot1.png";
+import im8 from "../assets/clbuilder.png"
 
 const GitHubIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -59,6 +60,14 @@ export default function Projects() {
       route: "/projects/thesis",
       github: "https://github.com/BenMcMillen/Undergraduate-Thesis",
       category: "Mechatronics",
+    },
+    {
+      title: "Cover letter Generator",
+      desc: "Designed & implemented a full stack cover letter generator with AWS, python, openAI, and Javascript.",
+      image: im8,
+      route: "/projects/clbuilder",
+      github: "https://github.com/nathansivalingam/cover-letter-builder",
+      category: "Computer Science",
     },
     {
       title: "Hand Gesture Robot",

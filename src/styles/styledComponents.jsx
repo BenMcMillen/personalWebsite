@@ -258,7 +258,7 @@ export const BackLink = styled(Link)`
 
 export const BodyImage = styled.img`
   width: 100%;
-  max-width: 420px;
+  max-width: 700px;
   height: auto;
   border-radius: 18px;
   border: 1px solid var(--border);
